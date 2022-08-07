@@ -1,1 +1,31 @@
+<!DOCTYPE html>
+<html>
+<body>
 
+<p>Calculadora condición de aprobación</p>
+<p>Matemática 2 - 2° Semestre 2022</p>
+
+crear();
+  
+<button onclick="calcular()">Calcular</button>
+
+<script>
+function calcular() {
+  var promedio = 0.4*nota1+0.6*nota2;
+}
+</script>
+
+<script>
+function crear(){
+  var nota1 = document.createElement("INPUT");
+  nota1.setAttribute("type", "number");
+  nota1.setAttribute("value", "");
+  document.body.appendChild(nota1);
+  var nota2 = document.createElement("INPUT");
+  nota2.setAttribute("type", "number");
+  nota2.setAttribute("value", "");
+  document.body.appendChild(nota2);
+}
+</script>
+</body>
+</html>
