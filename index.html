@@ -5,7 +5,14 @@
 <p>Calculadora condición de aprobación</p>
 <p>Matemática 2 - 2° Semestre 2022</p>
 
-crear();
+var nota1 = document.createElement("INPUT");
+  nota1.setAttribute("type", "number");
+  nota1.setAttribute("value", "");
+  document.body.appendChild(nota1);
+  var nota2 = document.createElement("INPUT");
+  nota2.setAttribute("type", "number");
+  nota2.setAttribute("value", "");
+  document.body.appendChild(nota2);
   
 <button onclick="calcular()">Calcular</button>
 
@@ -15,17 +22,6 @@ function calcular() {
 }
 </script>
 
-<script>
-function crear(){
-  var nota1 = document.createElement("INPUT");
-  nota1.setAttribute("type", "number");
-  nota1.setAttribute("value", "");
-  document.body.appendChild(nota1);
-  var nota2 = document.createElement("INPUT");
-  nota2.setAttribute("type", "number");
-  nota2.setAttribute("value", "");
-  document.body.appendChild(nota2);
-}
-</script>
+
 </body>
 </html>
