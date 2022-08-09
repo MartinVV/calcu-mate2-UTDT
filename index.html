@@ -1,27 +1,57 @@
 <!DOCTYPE html>
 <html>
-<body>
+<body style="background-color:LightGray;">
 
-<p>Calculadora condición de aprobación</p>
-<p>Matemática 2 - 2° Semestre 2022</p>
+<h2 style="color:MediumSeaGreen;">Calculadora condición de aprobación<br>Matemática 2 - 2° Semestre 2022</h2>
 
-<script>
-  var nota1 = document.createElement("INPUT");
-  nota1.setAttribute("type", "number");
-  nota1.setAttribute("value", "");
-  document.body.appendChild(nota1);
-  var nota2 = document.createElement("INPUT");
-  nota2.setAttribute("type", "number");
-  nota2.setAttribute("value", "");
-  document.body.appendChild(nota2);
-</script>
-  
-<button onclick="calcular()">Calcular</button>
+
+<table>
+<tr>
+    <td style="color:RebeccaPurple;">Nota primer parcial (40%):</td>
+    <td><input type="number" id="nota1" value=""></td>
+</tr>
+<tr>
+    <td style="color:RebeccaPurple;">Nota segundo parcial (60%):</td>
+    <td><input type="number" id="nota2" value=""></td>
+</tr>
+</table>
+
+<button onclick="calcular()" style="color:RebeccaPurple; background-color:MediumSeaGreen;"><b>Calcular</b></button>
+
+<table>
+<tr>
+    <td style="color:RebeccaPurple;">Promedio:</td>
+    <td id="promedio" style="color:MediumSeaGreen;font-weight:bold"></td>
+</tr>
+<tr>
+    <td style="color:RebeccaPurple;">Condición:</td>
+    <td id="condicion" style="color:MediumSeaGreen;font-weight:bold"></td>
+</tr>
+</table>
 
 <script>
 function calcular() {
+  var nota1 = parseInt(document.getElementById("nota1").value);
+  var nota2 = parseInt(document.getElementById("nota2").value);
   var promedio = 0.4*nota1+0.6*nota2;
-  document.write(promedio);
+  var condicion = "";
+  if (promedio >= 60){
+        if (nota1 >= 50 && nota2 >= 50){
+            condicion = "Promociona";}
+        else if (nota1 < 50){
+            condicion = "Recupera 1er parcial";}
+        else {
+            condicion = "Recupera 2do parcial";}
+   }
+    else if (promedio >= 40 && (nota1 >=50 || nota2 >= 50) ){
+        condicion = "Final";}
+    else {
+	    condicion = "Recursa";}
+  document.getElementById("condicion").innerHTML = condicion;
+  document.getElementById("promedio").innerHTML = promedio;
+  if (!(nota1 >= 0 && nota2 >= 0)){
+      alert("Debe ingresar una nota");
+  }
 }
 </script>
 
