@@ -35,19 +35,16 @@ function calcular() {
   var nota2 = parseInt(document.getElementById("nota2").value);
   var promedio = 0.6*nota1+0.4*nota2;
   var condicion = "";
-  if (promedio >= 60){
-        if (nota1 >= 50 && nota2 >= 50){
+  if (promedio >= 60 && nota1 >= 50 && nota2 >= 50){
             condicion = "Promociona";}
-  }
-    else if (nota1 >= 60){
-            condicion = "Final corto 2do parcial";}
-        else if (nota2 >=60){
+  else if (nota1 >= 60){
+        condicion = "Final corto 2do parcial";}
+  else if (nota2 >=60){
             condicion = "Final corto 1er parcial";}
-   }
-    else if (promedio >= 40 && (nota1 >=50 || nota2 >= 50) ){
-        condicion = "Final";}
-    else {
-	    condicion = "Recursa";}
+  else if (promedio >= 40 && (nota1 >=50 || nota2 >= 50) ){
+                  condicion = "Final Largo";}
+  else {
+	          condicion = "Recursa";}
   document.getElementById("condicion").innerHTML = condicion;
   document.getElementById("promedio").innerHTML = promedio;
   if (!(nota1 >= 0 && nota2 >= 0)){
