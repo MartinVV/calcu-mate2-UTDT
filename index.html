@@ -2,16 +2,16 @@
 <html>
 <body style="background-color:LightGray;">
 
-<h2 style="color:MediumSeaGreen;">Calculadora condición de aprobación<br>Matemática 2 - 2° Semestre 2022</h2>
+<h2 style="color:MediumSeaGreen;">Calculadora condición de aprobación<br>Matemática 2 - 1° Semestre 2023</h2>
 
 
 <table>
 <tr>
-    <td style="color:RebeccaPurple;">Nota primer parcial (40%):</td>
+    <td style="color:RebeccaPurple;">Nota primer parcial (60%):</td>
     <td><input type="number" id="nota1" value=""></td>
 </tr>
 <tr>
-    <td style="color:RebeccaPurple;">Nota segundo parcial (60%):</td>
+    <td style="color:RebeccaPurple;">Nota segundo parcial (40%):</td>
     <td><input type="number" id="nota2" value=""></td>
 </tr>
 </table>
@@ -39,12 +39,12 @@ function calcular() {
             condicion = "Promociona";}
   else if (nota1 >= 60){
         condicion = "Final corto 2do parcial";}
-  else if (nota2 >=60){
-            condicion = "Final corto 1er parcial";}
-  else if (promedio >= 40 && (nota1 >=50 || nota2 >= 50) ){
-                  condicion = "Final Largo";}
-  else {
-	          condicion = "Recursa";}
+  	else if (nota2 >=60){
+            	condicion = "Final corto 1er parcial";}
+  		else if (promedio >= 40 && (nota1 >=50 || nota2 >= 50) ){
+                 	condicion = "Final Largo";}
+  			else {
+	          		condicion = "Recursa";}
   document.getElementById("condicion").innerHTML = condicion;
   document.getElementById("promedio").innerHTML = promedio;
   if (!(nota1 >= 0 && nota2 >= 0)){
