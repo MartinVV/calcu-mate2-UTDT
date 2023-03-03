@@ -37,13 +37,17 @@ function calcular() {
   var condicion = "";
   if (promedio >= 60 && nota1 >= 50 && nota2 >= 50){
   	condicion = "Promociona";
-  } else if (nota1 >= 60){
+  }
+  if (promedio<60 && nota1 >= 60){
         condicion = "Final corto 2do parcial";
-  } else if (nota2 >=60){
+  }
+  if (promedio <60 && nota2 >=60){
         condicion = "Final corto 1er parcial";
-  } else if (promedio >= 40 && (nota1 >=50 || nota2 >= 50) ){
+  }
+  if (promedio<60 && promedio >= 40 && (nota1 >=50 || nota2 >= 50) ){
         condicion = "Final Largo";
-  } else {
+  }
+  if (condicion==""){
 	condicion = "Recursa";
   }
   document.getElementById("condicion").innerHTML = condicion;
