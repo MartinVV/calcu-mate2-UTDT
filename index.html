@@ -44,7 +44,7 @@ function calcular() {
   if (promedio <60 && nota2 >=60){
         condicion = "Final corto 1er parcial";
   }
-  if (promedio<60 && promedio >= 40 && (nota1 >=50 || nota2 >= 50) ){
+  if (condicion=="" && promedio<60 && promedio >= 40 && (nota1 >=50 || nota2 >= 50) ){
         condicion = "Final Largo";
   }
   if (condicion==""){
