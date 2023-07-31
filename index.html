@@ -7,11 +7,11 @@
 
 <table>
 <tr>
-    <td style="color:RebeccaPurple;">Nota primer parcial (60%):</td>
+    <td style="color:RebeccaPurple;">Nota primer parcial (50%):</td>
     <td><input type="number" id="nota1" value=""></td>
 </tr>
 <tr>
-    <td style="color:RebeccaPurple;">Nota segundo parcial (40%):</td>
+    <td style="color:RebeccaPurple;">Nota segundo parcial (50%):</td>
     <td><input type="number" id="nota2" value=""></td>
 </tr>
 </table>
@@ -33,7 +33,7 @@
 function calcular() {
   var nota1 = parseInt(document.getElementById("nota1").value);
   var nota2 = parseInt(document.getElementById("nota2").value);
-  var promedio = 0.6*nota1+0.4*nota2;
+  var promedio = 0.5*nota1+0.5*nota2;
   var condicion = "";
   if (promedio >= 60 && nota1 >= 50 && nota2 >= 50){
   	condicion = "Promociona";
@@ -44,7 +44,7 @@ function calcular() {
   if (condicion == "" && nota2 >= 60){
         condicion = "Final corto 1er parcial";
   }
-  if (condicion == "" && promedio >= 40 && (nota1 >= 50 || nota2 >= 50) ){
+  if (condicion == "" && ( promedio >= 40 || (nota1 >= 50 || nota2 >= 50)) ){
         condicion = "Final Largo";
   }
   if (condicion == ""){
