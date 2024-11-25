@@ -2,22 +2,38 @@
 <html>
 <body style="background-color:LightGray;">
 
-<h2 style="color:MediumSeaGreen;">Calculadora condición de aprobación<br>Matemática 2 - 2° Semestre 2023</h2>
+<h2 style="color:MediumSeaGreen;">Calculadora condición de aprobación<br>Matemática II B - 2° Semestre 2024</h2>
 
 
 <table>
 <tr>
-    <td style="color:RebeccaPurple;">Nota primer parcial (50%):</td>
-    <td><input type="number" id="nota1" value=""></td>
+    <td style="color:RebeccaPurple;">Nota primer parcial (1/3 de Nota 1):</td>
+    <td><input type="number" id="notap1" value=""></td>
 </tr>
 <tr>
-    <td style="color:RebeccaPurple;">Nota segundo parcial (50%):</td>
+    <td style="color:RebeccaPurple;">Nota segundo parcial (2/3 de Nota 1):</td>
+    <td><input type="number" id="notap2" value=""></td>
+</tr>
+</table>
+
+<button onclick="calcularn1()" style="color:RebeccaPurple; background-color:MediumSeaGreen;"><b>Calcular Nota 1</b></button>
+
+<table>
+<tr>
+    <td style="color:RebeccaPurple;">Nota 1:</td>
+    <td id="n1" style="color:MediumSeaGreen;font-weight:bold"></td>
+</tr>
+</table>
+	
+<table>
+<tr>
+    <td style="color:RebeccaPurple;">Nota 2 (parcial verano)</td>
     <td><input type="number" id="nota2" value=""></td>
 </tr>
 </table>
 
-<button onclick="calcular()" style="color:RebeccaPurple; background-color:MediumSeaGreen;"><b>Calcular</b></button>
-
+<button onclick="calcular()" style="color:RebeccaPurple; background-color:MediumSeaGreen;"><b>Calcular Nota Materia</b></button>
+	
 <table>
 <tr>
     <td style="color:RebeccaPurple;">Promedio:</td>
@@ -31,9 +47,10 @@
 
 <script>
 function calcular() {
-  var nota1 = parseInt(document.getElementById("nota1").value);
-  var nota2 = parseInt(document.getElementById("nota2").value);
-  var promedio = 0.5*nota1+0.5*nota2;
+  var notap1 = parseInt(document.getElementById("notap1").value);
+  var notap2 = parseInt(document.getElementById("notap2").value);
+  var nota1 = (notap1+2*notap2)/3;
+  var promedio = (3*nota1+nota2)/4;
   var condicion = "";
   if (promedio >= 60 && nota1 >= 50 && nota2 >= 50){
   	condicion = "Promociona";
@@ -44,20 +61,29 @@ function calcular() {
   if (condicion == "" && nota2 >= 60){
         condicion = "Final corto 1er parcial";
   }
-  if (condicion == "" && ( promedio >= 40 || (nota1 >= 50 || nota2 >= 50)) ){
-        condicion = "Final Largo";
-  }
   if (condicion == ""){
-	condicion = "Recursa";
+        condicion = "Final Largo";
   }
   document.getElementById("condicion").innerHTML = condicion;
   document.getElementById("promedio").innerHTML = promedio;
+  document.getElementById("n1").innerHTML = nota1;
   if (!(nota1 >= 0 && nota2 >= 0)){
       alert("Debe ingresar una nota");
   }
 }
 </script>
 
-
+<script>
+function calcularn1() {
+  var notap1 = parseInt(document.getElementById("notap1").value);
+  var notap2 = parseInt(document.getElementById("notap2").value);
+  var nota1 = (notap1+2*notap2)/3;
+  document.getElementById("n1").innerHTML = nota1;
+  if (!(nota1 >= 0)){
+      alert("Debe ingresar una nota");
+  }
+}
+</script>
+	
 </body>
 </html>
